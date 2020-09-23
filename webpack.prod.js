@@ -5,8 +5,6 @@ const common = require('./webpack.common')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin') // runtime内联到html文件中，减少http请求
-const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 从js中提取css
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin') // cssnano
 const TerserJSPlugin = require('terser-webpack-plugin') // 压缩js代码
 
 module.exports = merge(common, {
@@ -28,8 +26,7 @@ module.exports = merge(common, {
             comments: false // 移除js中的注释
           }
         }
-      }),
-      new OptimizeCssAssetsPlugin({})
+      })
     ],
     runtimeChunk: true, // 防止app.js缓存失效
     splitChunks: {
@@ -57,28 +54,12 @@ module.exports = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css', // prod启用contenthash
-      chunkFilename: 'css/[name].[contenthash:8].css'
-    }),
     new ScriptExtHtmlWebpackPlugin({
       inline: /runtime~.*\.js$/ // 内联runtimeChunk到html
     })
   ],
   module: {
     rules: [
-      {
-        test: /\.(css|styl)$/, // css-loader
-        exclude: [/dist/],
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          'css-loader',
-          'postcss-loader',
-          'stylus-loader'
-        ]
-      },
       {
         test: /\.(png|jpg|gif|svg)$/i,
         exclude: [/node_modules/, /dist/],
@@ -88,22 +69,7 @@ module.exports = merge(common, {
             options: {
               limit: 8192,
               outputPath: 'img',
-              name: '[name].[hash:8].[ext]',
-              publicPath: '/'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        include: [resolve('src/styles/font')],
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'css/font',
-              name: '[name].[ext]',
-              publicPath: '/css/font'
+              name: '[name].[hash:8].[ext]'
             }
           }
         ]
