@@ -4,7 +4,7 @@ set -e
 
 git add -A
 
-git commit -m 'init'
+git commit -m 'test'
 
 git push -f git@github.com:Oda-T/threejsdemo.git master:master
 
