@@ -213,33 +213,33 @@ function createScene() {
     addMorph(mesh, clip, 500, 1, 500 - Math.random() * 500, FLOOR + 350, 40)
   })
 
-  //   loader2.load('static/models/gltf/Horse.glb', function (gltf) {
-  //     var mesh = gltf.scene.children[0]
+  loader2.load('static/models/gltf/Horse.glb', function (gltf) {
+    var mesh = gltf.scene.children[0]
 
-  //     var clip = gltf.animations[0]
+    var clip = gltf.animations[0]
 
-  //     addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, 300, true)
-  //     addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, 450, true)
-  //     addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, 600, true)
+    addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, 300, true)
+    addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, 450, true)
+    addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, 600, true)
 
-  //     addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, -300, true)
-  //     addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, -450, true)
-  //     addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, -600, true)
-  //   })
+    addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, -300, true)
+    addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, -450, true)
+    addMorph(mesh, clip, 550, 1, 100 - Math.random() * 1000, FLOOR, -600, true)
+  })
 
-  //   loader2.load('static/models/gltf/Stork.glb', function (gltf) {
-  //     var mesh = gltf.scene.children[0]
-  //     var clip = gltf.animations[0]
+  loader2.load('static/models/gltf/Stork.glb', function (gltf) {
+    var mesh = gltf.scene.children[0]
+    var clip = gltf.animations[0]
 
-  //     addMorph(mesh, clip, 350, 1, 500 - Math.random() * 500, FLOOR + 350, 340)
-  //   })
+    addMorph(mesh, clip, 350, 1, 500 - Math.random() * 500, FLOOR + 350, 340)
+  })
 
-  //   loader2.load('static/models/gltf/Parrot.glb', function (gltf) {
-  //     var mesh = gltf.scene.children[0]
-  //     var clip = gltf.animations[0]
+  loader2.load('static/models/gltf/Parrot.glb', function (gltf) {
+    var mesh = gltf.scene.children[0]
+    var clip = gltf.animations[0]
 
-  //     addMorph(mesh, clip, 450, 0.5, 500 - Math.random() * 500, FLOOR + 300, 700)
-  //   })
+    addMorph(mesh, clip, 450, 0.5, 500 - Math.random() * 500, FLOOR + 300, 700)
+  })
 }
 
 function animate() {
